@@ -1,0 +1,10 @@
+.App{
+    --theme-color:rgb(255, 186, 58);
+}
+
+
+$theme-color:var(--theme-color);
+
+:export{
+    themeColor:$theme-color
+}
