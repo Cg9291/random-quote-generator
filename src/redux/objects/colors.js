@@ -1,4 +1,4 @@
-let themeColors=[
+export const themeColors=[
     'red',
     'green',
     'gold',
@@ -13,7 +13,5 @@ let themeColors=[
     'rgb(44, 62, 80)',
     'rgb(243, 156, 18)',
     'rgb(119, 177, 169)'
-    
-]
 
-export default themeColors;
+]
