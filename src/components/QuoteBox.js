@@ -5,7 +5,7 @@
 */
 
 import quotes from "../redux/objects/quotes.js";
-import {themeColors} from "../redux/objects/colors.js";
+import { themeColors } from "../redux/objects/colors.js";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -58,74 +58,79 @@ export default function QuoteBox(props) {
 
 	return (
 		<div
-			id="wrapper"
-			className="bgColorTransition"
-			style={{ backgroundColor: themeColor }}
+			id="quote-box"
+			className="w-3/4 p-[5vw] bg-white rounded-xl "
 		>
-			<div id="quote-box">
-				<div
-					id="text"
-					className={animClass ? "colorTransition" : null}
-					// key={quoteText}
-					style={{ color: themeColor }}
+			<div
+				id="text"
+				className={`mb-3 ${animClass ? "colorTransition" : ""}`}
+				style={{ color: themeColor }}
+			>
+				<svg
+					className="quoteSvg h-[5vw]"
+					xmlns="http://www.w3.org/2000/svg"
+					width="4rem"
+					height="1.35rem"
+					viewBox="100 100 200 320"
 				>
-					{/* {JSON.stringify(stateTrackingObject.quotes)} */}
-					{/*used for randomness tracking}*/}
-					<svg
-						className="quoteSvg"
-						xmlns="http://www.w3.org/2000/svg"
-						width="4rem"
-						height="1.35rem"
-						viewBox="100 100 200 320"
-					>
-						<path
-							d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"
-							fill={themeColor}
-						/>
-					</svg>
-					{quoteText}
-				</div>
-				<div
-					id="author"
-					className={animClass ? "colorTransition" : null}
-					style={{ color: themeColor }}
-				>
-					<i>
-						<b> - {authorText} </b>
-					</i>
-				</div>
-				<div id="footer-row">
-					<div>
-						<a
-							id="tweet-quote"
-							className="bg-sync bgColorTransition"
-							target="_top"
-							href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22An%20unexamined%20life%20is%20not%20worth%20living.%22%20Socrates"
-							style={{ backgroundColor: themeColor }}
-						>
-							<FontAwesomeIcon icon={faTwitter} />
-						</a>
-						<a
-							id="tumblr-quote"
-							className="bg-sync bgColorTransition"
-							target="_blank"
-							href="https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Stephen%20Covey&content=I%20am%20not%20a%20product%20of%20my%20circumstances.%20I%20am%20a%20product%20of%20my%20decisions.&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button"
-							style={{ backgroundColor: themeColor }}
-						>
-							<FontAwesomeIcon icon={faTumblr} />
-						</a>
-					</div>
-					<button
-						type="button"
-						id="new-quote"
-						className="bgColorTransition"
+					<path
+						d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"
+						fill={themeColor}
+					/>
+				</svg>
+				<p className="text-[5vw]">{quoteText}</p>
+			</div>
+			<div
+				id="author"
+				className={`mb-3 text-[5vw] italic font-medium ${
+					animClass ? "colorTransition" : null
+				}`}
+				style={{ color: themeColor }}
+			>
+				- {authorText}
+			</div>
+			<div
+				id="footer-row"
+				className="flex justify-between h-[4vh]"
+			>
+				<div className="w-1/4 flex gap-x-1">
+					<a
+						id="tweet-quote"
+						className="bg-sync bgColorTransition flex justify-center items-center flex-1 rounded aspect-square"
+						target="_top"
+						href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22An%20unexamined%20life%20is%20not%20worth%20living.%22%20Socrates"
 						style={{ backgroundColor: themeColor }}
-						onClick={handleClick}
 					>
-						New Quote
-					</button>
+						<FontAwesomeIcon
+							icon={faTwitter}
+							className=" h-3/4"
+						/>
+					</a>
+					<a
+						id="tumblr-quote"
+						className="bg-sync bgColorTransition flex justify-center items-center flex-1 rounded aspect-square"
+						target="_top"
+						href="https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=Stephen%20Covey&content=I%20am%20not%20a%20product%20of%20my%20circumstances.%20I%20am%20a%20product%20of%20my%20decisions.&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button"
+						style={{ backgroundColor: themeColor }}
+					>
+						<FontAwesomeIcon
+							icon={faTumblr}
+							className="h-3/4"
+						/>
+					</a>
 				</div>
+				<button
+					type="button"
+					id="new-quote"
+					className="w-2/5 px-1 bgColorTransition rounded text-[3.5vw] font-bold"
+					style={{ backgroundColor: themeColor }}
+					onClick={handleClick}
+				>
+					New Quote
+				</button>
 			</div>
 		</div>
 	);
 }
+
+/* </div> */
