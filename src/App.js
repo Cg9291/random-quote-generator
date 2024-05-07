@@ -1,10 +1,23 @@
 //import "./App.scss";
-import QuoteBox from "./components/QuoteBox.js";
+import { useState } from "react";
+import { QuoteBox } from "./components/QuoteBox.js";
+import { useSelector } from "react-redux";
+import { themeColors } from "./redux/objects/colors.js";
 
 export default function App() {
-	return (
-		<div className="App w-screen h-screen flex justify-center items-center overflow-hidden bg-indigo-600 bgColorTransition ">
-			<QuoteBox />
-		</div>
-	);
+  const colorID = useSelector((state) => state.colorPickerReducer.color);
+  const [themeColor, setThemeColor] = useState(themeColors[colorID]);
+
+  return (
+    <div
+      className="App bgColorTransition flex h-screen w-screen items-center justify-center overflow-hidden "
+      style={{ backgroundColor: themeColor }}
+    >
+      <QuoteBox
+        themeColor={themeColor}
+        setThemeColor={setThemeColor}
+        colorID={colorID}
+      />
+    </div>
+  );
 }
