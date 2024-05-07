@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <div
-      className="App bgColorTransition flex h-screen w-screen items-center justify-center overflow-hidden "
+      className="App bgColorTransition transition-[background-color:2s] flex h-screen w-screen items-center justify-center overflow-hidden transition-[background-color] duration-700 "
       style={{ backgroundColor: themeColor }}
     >
       <QuoteBox
