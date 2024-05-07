@@ -1,4 +1,3 @@
-//import "./App.scss";
 import { useState } from "react";
 import { QuoteBox } from "./components/QuoteBox.js";
 import { useSelector } from "react-redux";
